@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Champions Data</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<h2>Champions Details:</h2>
+<ul>
+    <% for(var i=0; i<data.length; i++) { %>
+    <li>
+        <%= data[i].Name %>
+    </li>
+    <% } %>
+</ul>
+</body>
+</html>

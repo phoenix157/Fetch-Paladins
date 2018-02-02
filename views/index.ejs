@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Welcome to <%= title %></h1>
+    <form action="/userinfo" method="post">
+      <input type="text" placeholder="User Name" name="user_name">
+      <button>Get Data</button>
+    </form>
+  </body>
+</html>

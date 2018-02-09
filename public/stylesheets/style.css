@@ -4,16 +4,16 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #e52b50;
 }
 a.nav-link:hover{
-  background: #48A3AC;
+  background: #e52b50;
 }
 .navbar-light .navbar-nav .nav-link{
   padding: 1rem 1rem;
 }
 .navbar-light .navbar-nav .nav-link:hover{
-  color: white !important;
+  /*color: white !important;*/
 }
 .nav-link:before {
   content: "";
@@ -22,7 +22,7 @@ a.nav-link:hover{
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #48A3AC;
+  background-color: #e52b50;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -37,4 +37,8 @@ a.nav-link:hover{
 
 .navbar-brand{
   padding-left:.5rem ;
+}
+
+.nav-link {
+  font-size: 18px;
 }

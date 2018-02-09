@@ -1,11 +1,88 @@
-<% include partials/header %>
-<h2>Champions Details:</h2>
-<ul>
-    <% for(var i=0; i<data.length; i++) { %>
-    <li>
-        <%= data[i].Name %>
-    </li>
-    <% } %>
-</ul>
+<% include partials/head_header %>
+    <link rel="stylesheet" href="/stylesheets/champions.css">
+<% include partials/head_footer %>
+<% include partials/body_header %>
+<div class="container">
+    <p></p>
+    <h1>Champions</h1>
+    <br>
+    <div class="row">
+        <% for(var i=0;i+1<data.length;i+=2) { %>
 
-<% include partials/footer %>
+                <div class="col-lg-3 col col1">
+                    <img src=<%=data[i].ChampionIcon_URL%>>
+                </div>
+                <div class="col-lg-9 col col1">
+                    <div class="data_champ">
+                        <h4><span class="heading"><b><%= data[i].Name %></b></span> - <em><%= data[i].Title %></em></h4>
+                        <p><%= data[i].Roles.substr(8) %></p>
+
+                        <div class="ability">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="<%= data[i].Ability_1.URL %>" title="<%= data[i].Ability_1.Description %>">
+                                    <p><%=data[i].Ability_1.Summary%></p>
+                                </div>
+                                <div class="col">
+                                    <img src="<%= data[i].Ability_2.URL %>" title="<%= data[i].Ability_2.Description %>">
+                                    <p><%=data[i].Ability_2.Summary%></p>
+                                </div>
+                                <div class="col">
+                                    <img src="<%= data[i].Ability_3.URL %>" title="<%= data[i].Ability_3.Description %>">
+                                    <p><%=data[i].Ability_3.Summary%></p>
+                                </div>
+                                <div class="col">
+                                    <img src="<%= data[i].Ability_4.URL %>" title="<%= data[i].Ability_4.Description %>">
+                                    <p><%=data[i].Ability_4.Summary%></p>
+                                </div>
+                                <div class="col">
+                                    <img src="<%= data[i].Ability_5.URL %>" title="<%= data[i].Ability_5.Description %>">
+                                    <p><%=data[i].Ability_5.Summary%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br><br><br>
+                </div>
+
+
+                <div class="col-lg-9 col col1">
+                    <div class="data_champ">
+                        <h4><span class="heading"><b><%= data[i+1].Name %></b></span> - <em><%= data[i+1].Title %></em></h4>
+                        <p><%= data[i+1].Roles.substr(8) %></p>
+
+                        <div class="ability">
+                            <div class="row">
+                                <div class="col">
+                                    <img src="<%= data[i+1].Ability_1.URL %>" title="<%= data[i+1].Ability_1.Description %>">
+                                    <p><%=data[i+1].Ability_1.Summary%></p>
+                                </div>
+                                <div class="col">
+                                    <img src="<%= data[i+1].Ability_2.URL %>" title="<%= data[i+1].Ability_2.Description %>">
+                                    <p><%=data[i+1].Ability_2.Summary%></p>
+                                </div>
+                                <div class="col">
+                                    <img src="<%= data[i+1].Ability_3.URL %>" title="<%= data[i+1].Ability_3.Description %>">
+                                    <p><%=data[i+1].Ability_3.Summary%></p>
+                                </div>
+                                <div class="col">
+                                    <img src="<%= data[i+1].Ability_4.URL %>" title="<%= data[i+1].Ability_4.Description %>">
+                                    <p><%=data[i+1].Ability_4.Summary%></p>
+                                </div>
+                                <div class="col">
+                                    <img src="<%= data[i+1].Ability_5.URL %>" title="<%= data[i+1].Ability_5.Description %>">
+                                    <p><%=data[i+1].Ability_5.Summary%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br><br><br>
+                </div>
+                <div class="col-lg-3 col col1">
+                    <img src=<%=data[i+1].ChampionIcon_URL%>>
+                </div>
+
+        <% }%>
+    </div>
+</div>
+<% include partials/body_footer %>

@@ -1,7 +1,34 @@
-<% include partials/header %>
-    <h1>Welcome to <%= title %></h1>
-    <form action="/userinfo" method="post">
-      <input type="text" placeholder="User Name" name="user_name">
-      <button>Get Data</button>
-    </form>
-<% include partials/footer %>
+<% include partials/head_header %>
+<link rel="stylesheet" href="/stylesheets/index.css">
+<% include partials/head_footer %>
+<% include partials/body_header %>
+
+
+    <div class="form_style" >
+
+        <div class="optin-container">
+            <div class="cta">Search for a Player</div>
+
+            <form class="form " method="post" action="/userinfo">
+                <input type="text" placeholder="User Name" name="user_name" id="text">
+                <input type="submit" value="Submit" />
+            </form>
+
+        </div>
+    </div>
+
+
+<script>
+    $(document).ready(function() {
+        $(".cta").click(function() {
+            $("form").slideDown(250);
+            // if form is visible
+            if ($("form").is(":visible")) {
+                // change .cta cursor to default
+                $(".cta").css('cursor', 'default');
+            }
+            $("#text").focus();
+        });
+    });
+</script>
+<% include partials/body_footer %>

@@ -56,4 +56,69 @@ body {
     font-family: "Cambria";
     text-transform: uppercase;
 }
-
+.card_style{
+    width:230px;
+}
+.card_style1{
+    width: 185px;
+    left: 38px;
+    position: absolute;
+    top: 35px;
+}
+.frame{
+    width:230px ;
+    position: absolute;
+    left: 15px;
+    top:0px;
+}
+.frame_crystal{
+    position: absolute;
+    top: 5px;
+    left: 110px;
+}
+.card_heading{
+    position: absolute;
+    top: 178px;
+    left: 70px;
+    width: 150px;
+    text-align: center;
+    color: white;
+}
+.card_desc{
+    position: absolute;
+    top: 220px;
+    width: 175px;
+    left: 45px;
+    font-size: 14px;
+}
+.card_ability{
+    position: absolute;
+    top: 198px;
+    left: 70px;
+    width: 145px;
+    text-align: center;
+}
+.card_heading_leg{
+    position: absolute;
+    top: 170px;
+    left: 70px;
+    width: 150px;
+    text-align: center;
+    color: white;
+}
+.card_desc_leg{
+    position: absolute;
+    top: 215px;
+    width: 165px;
+    left: 51px;
+    font-size: 13px;
+    color: white;
+}
+.card_ability_leg{
+    position: absolute;
+    top: 190px;
+    left: 70px;
+    width: 145px;
+    text-align: center;
+    color: white;
+}

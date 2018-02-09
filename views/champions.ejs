@@ -6,13 +6,20 @@
     <p></p>
     <h1>Champions</h1>
     <br>
+        <% for(var i=0;i+1<data.length;i+=1) { %>
     <div class="row">
-        <% for(var i=0;i+1<data.length;i+=2) { %>
-
-                <div class="col-lg-3 col col1">
-                    <img src=<%=data[i].ChampionIcon_URL%>>
+                <%if((i%2)==0){%>
+                <div class="col-lg-3 order-1  col col1">
+                    <%}else{%>
+                    <div class="col-lg-3 order-2 col col1">
+                        <%}%>
+                    <img style="cursor: pointer" src=<%=data[i].ChampionIcon_URL%> data-toggle="modal" data-target="#<%=i%>">
                 </div>
-                <div class="col-lg-9 col col1">
+                    <%if((i%2)==0){%>
+                <div class="col-lg-9 order-2 col col1">
+                    <%}else{%>
+                    <div class="col-lg-9 order-1 col col1">
+                        <%}%>
                     <div class="data_champ">
                         <h4><span class="heading"><b><%= data[i].Name %></b></span> - <em><%= data[i].Title %></em></h4>
                         <p><%= data[i].Roles.substr(8) %></p>
@@ -20,23 +27,23 @@
                         <div class="ability">
                             <div class="row">
                                 <div class="col">
-                                    <img src="<%= data[i].Ability_1.URL %>" title="<%= data[i].Ability_1.Description %>">
+                                    <img src="<%= data[i].Ability_1.URL %>" data-toggle="tooltip" data-placement="bottom" title="<%= data[i].Ability_1.Description %>">
                                     <p><%=data[i].Ability_1.Summary%></p>
                                 </div>
                                 <div class="col">
-                                    <img src="<%= data[i].Ability_2.URL %>" title="<%= data[i].Ability_2.Description %>">
+                                    <img src="<%= data[i].Ability_2.URL %>" data-toggle="tooltip" data-placement="bottom" title="<%= data[i].Ability_2.Description %>">
                                     <p><%=data[i].Ability_2.Summary%></p>
                                 </div>
                                 <div class="col">
-                                    <img src="<%= data[i].Ability_3.URL %>" title="<%= data[i].Ability_3.Description %>">
+                                    <img src="<%= data[i].Ability_3.URL %>" data-toggle="tooltip" data-placement="bottom" title="<%= data[i].Ability_3.Description %>">
                                     <p><%=data[i].Ability_3.Summary%></p>
                                 </div>
                                 <div class="col">
-                                    <img src="<%= data[i].Ability_4.URL %>" title="<%= data[i].Ability_4.Description %>">
+                                    <img src="<%= data[i].Ability_4.URL %>" data-toggle="tooltip" data-placement="bottom" title="<%= data[i].Ability_4.Description %>">
                                     <p><%=data[i].Ability_4.Summary%></p>
                                 </div>
                                 <div class="col">
-                                    <img src="<%= data[i].Ability_5.URL %>" title="<%= data[i].Ability_5.Description %>">
+                                    <img src="<%= data[i].Ability_5.URL %>" data-toggle="tooltip" data-placement="bottom" title="<%= data[i].Ability_5.Description %>">
                                     <p><%=data[i].Ability_5.Summary%></p>
                                 </div>
                             </div>
@@ -44,45 +51,65 @@
                     </div>
                     <br><br><br><br>
                 </div>
+                </div>
+                    <%var item=items.filter(champion_item=>champion_item.champion_id==data[i].id)%>
+                    <div class="modal fade" id="<%=i%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header" style="text-align: center">
+                                    <h4><span class="heading"><b><%= data[i].Name %></b></span> - <em><%= data[i].Title %></em></h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                    <%item.forEach(function (p) {%>
+                                        <div class="col-lg-4">
+                                            <%var k=p.Description.indexOf("]")%>
+                                            <%var desc=p.Description.substring(k+1)%>
+                                            <%var ability=p.Description.substring(1,k)%>
 
+                                            <%if(p.item_type.indexOf("Legendary")!=-1){%>
 
-                <div class="col-lg-9 col col1">
-                    <div class="data_champ">
-                        <h4><span class="heading"><b><%= data[i+1].Name %></b></span> - <em><%= data[i+1].Title %></em></h4>
-                        <p><%= data[i+1].Roles.substr(8) %></p>
+                                            <img class="card_style" src="<%=p.itemIcon_URL%>">
+                                            <span class="card_heading_leg"> <%=p.DeviceName%></span>
+                                            <span class="card_desc_leg"><%=desc%></span>
+                                            <span class="card_ability_leg"><%=ability%></span>
 
-                        <div class="ability">
-                            <div class="row">
-                                <div class="col">
-                                    <img src="<%= data[i+1].Ability_1.URL %>" title="<%= data[i+1].Ability_1.Description %>">
-                                    <p><%=data[i+1].Ability_1.Summary%></p>
-                                </div>
-                                <div class="col">
-                                    <img src="<%= data[i+1].Ability_2.URL %>" title="<%= data[i+1].Ability_2.Description %>">
-                                    <p><%=data[i+1].Ability_2.Summary%></p>
-                                </div>
-                                <div class="col">
-                                    <img src="<%= data[i+1].Ability_3.URL %>" title="<%= data[i+1].Ability_3.Description %>">
-                                    <p><%=data[i+1].Ability_3.Summary%></p>
-                                </div>
-                                <div class="col">
-                                    <img src="<%= data[i+1].Ability_4.URL %>" title="<%= data[i+1].Ability_4.Description %>">
-                                    <p><%=data[i+1].Ability_4.Summary%></p>
-                                </div>
-                                <div class="col">
-                                    <img src="<%= data[i+1].Ability_5.URL %>" title="<%= data[i+1].Ability_5.Description %>">
-                                    <p><%=data[i+1].Ability_5.Summary%></p>
+                                            <%}else{%>
+
+                                            <div style="height: 350px;">
+                                            <img class="card_style1" src="<%=p.itemIcon_URL%>">
+                                            </div>
+                                            <img class="frame" src="/images/frames/frame.png">
+                                            <%if(p.item_type.indexOf("Common")!=-1){%>
+                                            <img class="frame_crystal" src="/images/frames/frame_crystals/common.png">
+                                            <%}%>
+                                            <%if(p.item_type.indexOf("Rare")!=-1){%>
+                                            <img class="frame_crystal" src="/images/frames/frame_crystals/rare.png">
+                                            <%}%>
+                                            <%if(p.item_type.indexOf("Epic")!=-1){%>
+                                            <img class="frame_crystal" src="/images/frames/frame_crystals/epic.png">
+                                            <%}%>
+                                            <span class="card_heading"> <%=p.DeviceName%></span>
+                                            <span class="card_desc"><%=desc%></span>
+                                            <span class="card_ability"><%=ability%></span>
+                                            <%}%>
+
+                                        </div>
+                                    <%})%>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br><br><br><br>
-                </div>
-                <div class="col-lg-3 col col1">
-                    <img src=<%=data[i+1].ChampionIcon_URL%>>
-                </div>
-
         <% }%>
-    </div>
+
 </div>
+<script>
+$(document).ready(function() {
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+});
+    </script>
 <% include partials/body_footer %>

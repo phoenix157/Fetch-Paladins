@@ -12,9 +12,8 @@ var newpromise = new Promise(function (resolve,reject) {
         resolve(res);
         };
     });
-});
-
-newpromise.then(function (result) {
+})
+.then(function (result) {
     sessionId = result;
     //console.log(sessionId);
     //console.log(pal);

@@ -16,15 +16,21 @@ router.get('/', function(req, res, next) {
     var newPromise = new Promise(function (resolve,reject) {
         pal.getChampions(sessionId, 'PC', (err, res) => {
             //console.log(res);
-            resolve(res)
+            resolve(res);
         });
-    });
-
-    newPromise.then(function (result) {
+    })
+    .then(function (result) {
         data = result;
-        //console.log(data);
-        res.render('champions',{data:data});
-
+        // res.send(data);
+        var newPromise1=new Promise(function (resolve,reject) {
+            pal.getItems(sessionId,'PC',(err,res)=>{
+                resolve(res);
+            });
+        })
+            .then(function (result1) {
+                // console.log(result1);
+                res.render('champions',{data:data,items:result1});
+            })
     });
 });
 

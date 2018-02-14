@@ -61,7 +61,7 @@
                     <br><br><br><br>
                 </div>
                 </div>
-                    <%var item=items.filter(champion_item=>champion_item.champion_id==data[i].id)%>
+                    <%var item=items_map.get(data[i].id)%>
                     <div class="modal fade" id="<%=i%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
@@ -119,6 +119,7 @@
 <script>
 $(document).ready(function() {
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+    var p=1;
 });
     </script>
 <% include partials/body_footer %>

@@ -5,7 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var session = require('./routes/session');
+require('./routes/session');
+
+setTimeout(function () {
+    require('./routes/getchampData');
+},1000);
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var champions = require('./routes/champions');

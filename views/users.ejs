@@ -1,12 +1,21 @@
 <% include partials/head_header %>
+    <link rel="stylesheet" href="/stylesheets/users.css">
 <% include partials/head_footer %>
 <% include partials/body_header %>
 
-    <div class="container">
-        <div class="heading_info">
-
+    <section id="profile-header">
+        <div class="container">
+            <div class="profile-img">
+                <img src="<%= champSorted[0].image %>" width="100px" height="100px">
+                <div class="profile-level"><%= playerData.Level %></div>
+            </div>
+            <h1><%= playerData.Name.toUpperCase() %></h1>
+            <div class="profile-status">
+                Status : <span class="profile-stats"> <%= playerStatus.status_string.toUpperCase()%></span><br>
+                Platform : <span class="profile-stats"> PC </span>
+            </div>
         </div>
-    </div>
+    </section>
 
 
 <% include partials/body_footer %>

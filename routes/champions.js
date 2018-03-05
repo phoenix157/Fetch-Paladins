@@ -2,8 +2,10 @@ var express = require('express');
 var router = express.Router();
 var Promise = require('promise');
 var tempdb = require('./tempdb');
+
 var items_map=new Map();
-var data;
+var data = tempdb.getChampData();
+
 router.get('/', function(req, res, next) {
 
     var sessionId = tempdb.getSessionId();
@@ -17,7 +19,7 @@ router.get('/', function(req, res, next) {
         var newPromise = new Promise(function (resolve, reject) {
             pal.getChampions(sessionId, 'PC', function (err, res) {
                 //console.log(res);
-                console.log("CHAMP REQ");
+                console.log("CHAMP REQ in champions.js");
                 resolve(res);
             });
         })

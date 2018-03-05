@@ -1,5 +1,7 @@
 var sessionId;
 var pal;
+var champData;
+
 
 exports.getSessionId = function () {
     return sessionId;
@@ -14,3 +16,10 @@ exports.savePal = function (res) {
     pal = res;
 }
 
+exports.saveChampData = function (res) {
+    champData = res;
+}
+
+exports.getChampData = function () {
+    return champData;
+}

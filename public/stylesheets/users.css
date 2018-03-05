@@ -1,0 +1,48 @@
+#profile-header {
+    background: #bdbdbd;
+    padding: 15px 0;
+    color: #4d4f51;
+    background-size: cover;
+}
+
+#profile-header img {
+    border-radius: 30%;
+}
+
+.profile-img {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+}
+
+.profile-level {
+    position: absolute;
+    bottom: 0;
+    font-size: 15px;
+    background: #8b8d8e;
+    font-weight: 600;
+    padding: 0 3px;
+    color: #000;
+    border-radius: 2px;
+}
+
+#profile-header h1 {
+    display: inline-block;
+    vertical-align: top;
+    margin: 13px 15px;
+    /*font-size: 24px;*/
+    color: #383838;
+}
+
+.profile-status {
+    float: right;
+    display: inline-block;
+    margin-top:9px;
+    margin-right:25px;
+    font-weight: 600;
+    font-size: 25px;
+}
+.profile-stats {
+    font-weight: bold;
+    color: #383838;
+}

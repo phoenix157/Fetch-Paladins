@@ -13,3 +13,4 @@ exports.saveSessionId = function (res) {
 exports.savePal = function (res) {
     pal = res;
 }
+

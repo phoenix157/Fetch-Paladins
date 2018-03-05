@@ -15,22 +15,68 @@ router.get('/', function(req, res, next) {
     //console.log(pal);
 
     var user_name = req.baseUrl.toString().substr(7);
-    var data = [];
+    var champData = [];
+    var playerStatus = {};
+    var playerData = {};
 
-    var newPromise = new Promise(function (resolve,reject) {
-        pal.getPlayer(sessionId, 'PC', user_name, (err, res) => {
-            //console.log(res);
-            resolve(res)
+    var newPromise = new Promise(function (resolve, reject) {
+
+        var newPromise = new Promise(function (resolve,reject) {
+
+            pal.getPlayer(sessionId, 'PC', user_name, (err, res) => {
+                //console.log(res);
+                resolve(res[0]);
+            });
+        }).then(function (result) {
+            playerData = result;
+
         });
-    });
 
-    newPromise.then(function (result) {
-        data = result;
-        //console.log(data[0]);
-        res.render('users',{data:data});
+        var newPromise = new Promise(function (resolve,reject) {
 
-    });
+            pal.getChampionRanks(sessionId, 'PC', user_name, (err, res) => {
+                //console.log(res);
+                resolve(res);
+            });
+        }).then(function (result) {
+            champData = result;
+
+        });
+
+        var newPromise = new Promise(function (resolve,reject) {
+
+            pal.getPlayerStatus(sessionId, 'PC', user_name, (err, res) => {
+                //console.log(res);
+                resolve(res[0]);
+            });
+        }).then(function (result) {
+            playerStatus = result;
+
+        });
+
+        setTimeout(function () {
+            resolve(1);
+        },3000);
+
+    }).then(function (result) {
+        res.render('users', {
+            champData:champData,
+            playerStatus:playerStatus,
+            playerData:playerData
+        });
+    })
+
+
+    setTimeout(function () {
+
+
+    },1500);
+
+
 });
+
+
+
 
 router.get('/matches', function (req, res, next) {
     var sessionId = tempdb.getSessionId();

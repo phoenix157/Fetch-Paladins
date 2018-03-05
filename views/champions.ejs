@@ -79,12 +79,15 @@
                                             <%var desc=p.Description.substring(k+1)%>
                                             <%var ability=p.Description.substring(1,k)%>
 
+
                                             <%if(p.item_type.indexOf("Legendary")!=-1){%>
+
 
                                             <img class="card_style" src="<%=p.itemIcon_URL%>">
                                             <span class="card_heading_leg"> <%=p.DeviceName%></span>
                                             <span class="card_desc_leg"><%=desc%></span>
                                             <span class="card_ability_leg"><%=ability%></span>
+
 
                                             <%}else{%>
 

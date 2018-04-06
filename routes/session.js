@@ -17,7 +17,7 @@ var newpromise = new Promise(function (resolve,reject) {
     sessionId = result;
     //console.log(sessionId);
     //console.log(pal);
-
+    console.log("SessionId created");
     tempdb.savePal(pal);
     tempdb.saveSessionId(sessionId);
 

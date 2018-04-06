@@ -1,9 +1,10 @@
 <% include partials/head_header %>
     <link rel="stylesheet" href="/stylesheets/champions.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 <% include partials/head_footer %>
 <% include partials/body_header %>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
 <script>
     new WOW().init();
 </script>
@@ -79,12 +80,15 @@
                                             <%var desc=p.Description.substring(k+1)%>
                                             <%var ability=p.Description.substring(1,k)%>
 
+
                                             <%if(p.item_type.indexOf("Legendary")!=-1){%>
+
 
                                             <img class="card_style" src="<%=p.itemIcon_URL%>">
                                             <span class="card_heading_leg"> <%=p.DeviceName%></span>
                                             <span class="card_desc_leg"><%=desc%></span>
                                             <span class="card_ability_leg"><%=ability%></span>
+
 
                                             <%}else{%>
 
